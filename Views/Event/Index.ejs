@@ -1,0 +1,55 @@
+<% layout('../layouts/mainlayout.ejs') -%> <br />
+<b>Events Listing</b>
+<br /><br />
+<%if (reqInfo.authenticated) { %>
+<a href="/Event/Create" class="btn btn-primary">Create Event</a><br /><br />
+
+<table>
+    <% for(var i=0; i < events.length; i++) { %>
+    <tr>
+        <td><b>Event: </b><%= events[i].title %></td>
+        <td><b>Description: </b><%= events[i].description %></td>
+        <td><b>Location: </b><%= events[i].location %></td>
+        <td><b>Day: </b><%= events[i].day %></td>
+        <td><b>Time: </b><%= events[i].time %></td>
+        <td><b>Created By: </b><%= events[i].createdby %></td>
+        <td><b>Attendees: </b><%= events[i].attendees %></td>
+        <td><a href="/Event/Detail?title=<%= events[i].title %>" class="btn btn-outline-primary">Detail</a></td>
+        <td><a href="/Event/Edit?title=<%= events[i].title %>" class="btn btn-outline-info">Edit</a></td>
+        <td>
+            <form action="/Event/SignUp" method="POST">
+                <input id="title" name="title" type="hidden" value=<%= events[i].title %> />
+                <button class="btn btn-success" type="submit">Sign Up</button>
+            </form>
+        </td>
+        <td>
+            <form action="/Event/Withdraw" method="POST">
+                <input id="title" name="title" type="hidden" value=<%= events[i].title %> />
+                <button class="btn btn-warning" type="submit">Withdraw</button>
+            </form>
+        </td>
+        <td>
+            <form action="/Event/Delete" method="POST">
+                <input id="title" name="title" type="hidden" value=<%= events[i].title %> />
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<!-- 'else' must be in separate section with curly brackets to work. -->
+<% } else { %>
+<table>
+    <% for(var i=0; i < events.length; i++) { %>
+    <tr>
+        <td><b>Event: </b><%= events[i].title %></td>
+        <td><b>Description: </b><%= events[i].description %></td>
+        <td><b>Location: </b><%= events[i].location %></td>
+        <td><b>Day: </b><%= events[i].day %></td>
+        <td><b>Time: </b><%= events[i].time %></td>
+        <td><b>Created By: </b><%= events[i].createdby %></td>
+        <td><b>Attendees: </b><%= events[i].attendees %></td>
+    </tr>
+    <% } %>
+</table>
+<% } %>

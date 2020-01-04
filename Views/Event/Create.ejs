@@ -1,0 +1,46 @@
+<% layout('../layouts/mainlayout.ejs') -%><br />
+<form action="/Event/CreateEvent" method="POST">
+  <table>
+    <tr>
+      <td>Title:</td>
+      <td>
+        <input id="title" name="title" value="<%= event.title ? event.title : '' %>" type="text" />
+      </td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td>
+        <input id="description" name="description" type="text"
+          value="<%= event.description ? event.description : '' %>" />
+      </td>
+    </tr>
+    <tr>
+      <td>Location:</td>
+      <td>
+        <input id="location" name="location" type="text" value="<%= event.location ? event.location : '' %>" />
+      </td>
+    </tr>
+    <tr>
+      <td>Day:</td>
+      <td>
+        <input id="day" name="day" type="text" value="<%= event.day ? event.day : '' %>" />
+      </td>
+    </tr>
+    <tr>
+      <td>Time:</td>
+      <td>
+        <input id="time" name="time" type="text" value="<%= event.time ? event.time : '' %>" />
+      </td>
+    </tr>
+    <tr>
+      <td>Attendees:</td>
+      <td>
+        <input id="attendees" name="attendees" type="text" value="<%= event.attendees ? event.attendees : '' %>" />
+      </td>
+    </tr>
+    <tr>
+      <td><input type="submit" class="btn btn-success" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+<%= errorMessage %>

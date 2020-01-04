@@ -1,0 +1,12 @@
+<% layout('../layouts/mainlayout.ejs') -%> <br />
+<b>User Detail</b>
+<br>
+
+<b>Username:</b> <%= user.username %> <br />
+<b>Email:</b> <%= user.email %> <br />
+<b>First Name:</b> <%= user.firstName %> <br />
+<b>Last Name:</b> <%= user.lastName %> <br />
+<b>Street Address:</b> <%= user.streetAddress %><br />
+<b>Phone Number:</b> <%= user.phoneNumber %><br />
+<br>
+<a href="/User/Edit?username=<%= user.username %>" class="btn btn-primary">Edit User</a>

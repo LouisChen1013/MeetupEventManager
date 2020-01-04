@@ -1,0 +1,29 @@
+<% layout('../layouts/mainlayout.ejs') -%> <br /><br />
+<h2>Event Detail</h2>
+
+<br>
+
+<b>Event Title:</b> <%= event.title %> <br />
+
+<br>
+<table>
+    <% for(var i=0; i < Object.keys(attendees).length; i++) { %>
+    <tr>
+        <td><b>Attendee: </b><%= event.attendees[i]%></td>
+    </tr>
+    <tr>
+        <td><b>First Name: </b><%= attendees[i][1]%></td>
+    </tr>
+    <tr>
+        <td><b>Last Name: </b><%= attendees[i][2]%></td>
+    </tr>
+    <tr>
+        <td><b>Email: </b><%= attendees[i][0]%></td>
+    </tr>
+    <tr>
+        <td>
+            <br>
+        </td>
+    </tr>
+    <% } %>
+</table><br>

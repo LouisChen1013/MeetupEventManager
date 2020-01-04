@@ -1,0 +1,15 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br />
+<form action="/User/LoginUser" method="POST">
+    <div class="form-group w-25">
+        <label for="username">Username:</label>
+        <input name="username" type="text" class="form-control" value="<%= user.username ? user.username : '' %>">
+    </div>
+    <div class="form-group w-25">
+        <label for="pwd">Password:</label>
+        <input name="password" class="form-control" type="password">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<%= errorMessage ? errorMessage : "" %><br />

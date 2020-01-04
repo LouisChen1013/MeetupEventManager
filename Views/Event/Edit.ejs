@@ -1,0 +1,20 @@
+<% layout('../layouts/mainlayout.ejs') -%> <br /><br />
+<b>Event Detail</b>
+
+<form action="/Event/Update" method="POST">
+  <h3>Event Title: </h3> <%= event.title %> <br />
+  <input type='hidden' name="title" value=<%= event.title %> /> <br />
+  <b>Description:</b>
+  <input type="text" name="description" value="<%= event.description ? event.description : '' %>" /><br />
+  <b>Location:</b>
+  <input type="text" name="location" value="<%= event.location ? event.location : '' %>" /><br />
+  <b>Day:</b>
+  <input type="text" name="day" value="<%= event.day ? event.day : '' %>" /><br />
+  <b>Time:</b>
+  <input type="text" name="time" value="<%= event.time ? event.time : '' %>" /><br />
+  <b>Attendees:</b>
+  <input type="text" name="attendees" value="<%= event.title ? event.attendees : '' %>" /><br />
+  <br>
+  <input type="submit" class="btn btn-success" value="Submit" />
+</form>
+<%= errorMessage %>
